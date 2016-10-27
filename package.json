@@ -1,14 +1,14 @@
 {
-  "name": "angular2-webpack-starter",
-  "version": "5.1.1",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
+  "name": "gear.deposit",
+  "version": "0.1.0",
+  "description": "",
   "keywords": [
     "angular2",
     "webpack",
     "typescript"
   ],
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+  "author": "Johannes Gest <Johannes.Gest@haufe-lexware.com>",
+  "homepage": "http://www.jdav-freiburg.de/",
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack --config config/webpack.dev.js --progress --profile",
@@ -132,10 +132,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/jdav-freiburg/gear-deposit.git"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/jdav-freiburg/gear-deposit/issues"
   },
   "engines": {
     "node": ">= 4.2.1",

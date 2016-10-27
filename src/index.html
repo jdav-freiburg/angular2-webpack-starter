@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,39 +9,18 @@
 
   <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
 
-  <% if (webpackConfig.htmlElements.headTags) { %>
-  <!-- Configured Head Tags  -->
-  <%= webpackConfig.htmlElements.headTags %>
-  <% } %>
+  <% if (webpackConfig.htmlElements.headTags) { %><%= webpackConfig.htmlElements.headTags %><% } %>
 
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
-
-
 </head>
 
 <body>
-
-  <app>
-    Loading...
-  </app>
-
-  <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-71073175-1', 'auto');
-    ga('send', 'pageview');
-  </script>
+  <app>Loading...</app>
 
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>
-
-
 </body>
 </html>

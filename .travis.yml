@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6"
+  - node
 services:
   - docker
 before_install:
@@ -21,7 +21,7 @@ install:
 script:
   - npm test
   - npm run build:dev
-  - firebase use $FIREBASE_PROJECT_DEV
+  - firebase use --token $FIREBASE_DEPLOY_TOKEN $FIREBASE_PROJECT_DEV
   - firebase deploy --token $FIREBASE_DEPLOY_TOKEN -m "ci deploy: $TRAVIS_BRANCH build \#$TRAVIS_BUILD_NUMBER" --non-interactive
 cache:
   directories:

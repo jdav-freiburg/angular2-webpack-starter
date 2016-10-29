@@ -8,6 +8,7 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -17,6 +18,16 @@ import { NoContentComponent } from './no-content';
         NoContentComponent,
     ],
     imports: [
+        AngularFireModule.initializeApp({
+                apiKey: 'AIzaSyAh1HzWeBkI8VmscctkxRzZNI6TQWOJFZk',
+                authDomain: 'test-6b408.firebaseapp.com',
+                databaseURL: 'https://test-6b408.firebaseio.com',
+                storageBucket: 'test-6b408.appspot.com'
+            },
+            {
+                provider: AuthProviders.Google,
+                method: AuthMethods.Redirect
+            }),
         BrowserModule,
         FormsModule,
         HttpModule,

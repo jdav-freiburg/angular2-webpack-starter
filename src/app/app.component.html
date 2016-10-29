@@ -1,5 +1,11 @@
-<header>FIXME: -header-</header>
+<header></header>
+
+<div> auth-status: {{ (angularFire.auth | async)?.uid }}</div>
+<button *ngIf="!(angularFire.auth | async)" (click)="login()">Login</button>
+<button *ngIf="(angularFire.auth | async)" (click)="logout()">Logout</button>
+
 <main>
   <router-outlet></router-outlet>
 </main>
-<footer>FIXME: -footer-</footer>
+
+<footer></footer>

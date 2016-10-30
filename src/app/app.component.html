@@ -1,11 +1,16 @@
-<header></header>
+<div class="container-fluid">
+  <div class="col-xs-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+    <header>
+      <h1>Depot Alpha</h1>
 
-<div> auth-status: {{ (angularFire.auth | async)?.uid }}</div>
-<button *ngIf="!(angularFire.auth | async)" (click)="login()">Login</button>
-<button *ngIf="(angularFire.auth | async)" (click)="logout()">Logout</button>
+      <button class="btn btn-primary" *ngIf="!(angularFire.auth | async)" (click)="login()">Login</button>
+      <button class="btn btn-primary" *ngIf="(angularFire.auth | async)" (click)="logout()">Logout</button>
+    </header>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
 
-<footer></footer>
+    <footer></footer>
+  </div>
+</div>

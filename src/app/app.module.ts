@@ -1,3 +1,4 @@
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +9,6 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -28,6 +28,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
                 provider: AuthProviders.Google,
                 method: AuthMethods.Redirect
             }),
+        // angular core
         BrowserModule,
         FormsModule,
         HttpModule,

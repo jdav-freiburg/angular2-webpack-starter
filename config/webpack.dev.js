@@ -123,6 +123,9 @@ module.exports = function (options) {
         debug: true,
         options: {
 
+          context: helpers.root('src'),
+          output: {path: './'},
+
           /**
            * Static analysis linter for TypeScript advanced options configuration
            * Description: An extensible linter for the TypeScript language.

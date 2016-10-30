@@ -126,6 +126,11 @@ module.exports = function (options) {
           loaders: ['to-string-loader', 'css-loader']
         },
 
+        {
+          test: /\.scss$/,
+          loaders: ['raw-loader', 'sass-loader']
+        },
+
         /* Raw loader support for *.html
          * Returns file content as string
          *
@@ -260,13 +265,6 @@ module.exports = function (options) {
       new HtmlElementsPlugin({
         headTags: require('./head-config.common')
       }),
-
-      /**
-       * Plugin LoaderOptionsPlugin (experimental)
-       *
-       * See: https://gist.github.com/sokra/27b24881210b56bbaff7
-       */
-      new LoaderOptionsPlugin({}),
 
     ],
 

@@ -61,3 +61,4 @@ npm-debug.log
 .idea/
 *.swp
 .firebaserc
+.credentials.*.json

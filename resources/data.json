@@ -1,0 +1,87 @@
+{
+  "types": [
+    "Helm",
+    "Halbseil"
+  ],
+  "categories": [
+    "Helme",
+    "Seile"
+  ],
+  "items": [
+    {
+      "type": "Helm",
+      "name": "Elliot, klein, Orange",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Elliot, klein, Orange",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Elliot, klein, Orange",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Edelrid, Ultralight Junior, Rot",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Edelrid, Ultralight Junior, Rot",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Edelrid, Ultralight Junior, Rot",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Edelrid, Ultralight Junior, Rot",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Petzl, Ecrin-Roc, Weiß",
+      "category": "Helme"
+    },
+    {
+      "type": "Helm",
+      "name": "Petzl, Ecrin-Roc, Weiß",
+      "category": "Helme"
+    },
+    {
+      "type": "Halbseil",
+      "name": "Beal Ice Line, 60m, Grün, imprägniert",
+      "category": "Seile"
+    },
+    {
+      "type": "Halbseil",
+      "name": "Beal Ice Line, 60m, Rot, imprägniert",
+      "category": "Seile"
+    },
+    {
+      "type": "Halbseil",
+      "name": "60m, Blau-Grau",
+      "category": "Seile"
+    },
+    {
+      "type": "Halbseil",
+      "name": "60m, Rot-Blau",
+      "category": "Seile"
+    },
+    {
+      "type": "Halbseil",
+      "name": "60m, Grau-Blau-Pink",
+      "category": "Seile"
+    },
+    {
+      "type": "Halbseil",
+      "name": "60m, Orange-Schwarz",
+      "category": "Seile"
+    }
+  ]
+}

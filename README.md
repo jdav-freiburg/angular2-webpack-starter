@@ -19,6 +19,7 @@ npm run server:dev:hmr
 * [TypeScript](#typescript)
 * [@Types](#types)
 * [License](#license)
+* [Links](#links)
 
 # Getting Started
 ## Dependencies
@@ -170,3 +171,6 @@ import * as _ from 'lodash';
 
 # License
  [MIT](/LICENSE)
+
+# Links
+https://github.com/angular/angularfire2

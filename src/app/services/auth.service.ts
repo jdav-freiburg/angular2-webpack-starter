@@ -16,7 +16,7 @@ export class AuthService {
     public getAuthUser(): Observable<AuthUser> {
         if (this.authUser === undefined) {
             console.trace('#getAuthUser();');
-            return this.af.auth.first().map((authState: FirebaseAuthState) => {
+            return this.af.auth.map((authState: FirebaseAuthState) => {
                 this.authUser = (authState != null && authState.auth !== undefined) ? authState.auth : null;
                 console.trace('#getAuthUser(); authUser=', this.authUser);
                 return this.authUser;
@@ -29,7 +29,7 @@ export class AuthService {
     public isAuthorized(): Observable<boolean> {
         if (this.authorized === undefined) {
             console.trace('#isAuthorized();');
-            return this.af.auth.first().map((authState: FirebaseAuthState) => {
+            return this.af.auth.map((authState: FirebaseAuthState) => {
                 this.authorized = authState != null && authState.auth !== undefined;
                 console.trace(`#isAuthorized(); authorized=${this.authorized}`);
                 return this.authorized;
@@ -40,12 +40,14 @@ export class AuthService {
     }
 
     public login() {
+        console.trace('#login()');
         this.af.auth.login();
     }
 
     public logout() {
+        console.trace('#logout()');
         this.af.auth.logout();
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
     }
 
 }

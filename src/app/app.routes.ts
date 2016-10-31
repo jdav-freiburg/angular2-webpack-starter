@@ -2,13 +2,14 @@ import { Routes } from '@angular/router';
 import { NoContentComponent } from './components/no-content/no-content.component';
 import { HomeComponent } from './components/home/home.component';
 import { ItemsComponent } from './components/admin/items/items.component';
-import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
+import { AdminUserGuard } from './services/guards/admin-user-guard.service';
 import { RegisterComponent } from './components/user/register/register.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { AuthGuard } from './services/guards/auth-guard.service';
 import { NoAccessComponent } from './components/no-access/no-access.component';
-import { RegisteredGuard } from './services/guards/registered-guard.service';
+import { StandardUserGuard } from './services/guards/standard-user-guard.service';
 import { LoginGuard } from './services/guards/login-guard.service';
+import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
 
 export const ROUTES: Routes = [
     {
@@ -20,7 +21,7 @@ export const ROUTES: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [AuthGuard, RegisteredGuard]
+        canActivate: [AuthGuard, StandardUserGuard]
     },
 
     {
@@ -32,13 +33,13 @@ export const ROUTES: Routes = [
     {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AlreadyRegisteredGuard]
     },
 
     {
         path: 'admin/items',
         component: ItemsComponent,
-        canActivate: [AuthGuard, AuthAdminGuard]
+        canActivate: [AuthGuard, AdminUserGuard]
     },
 
     {

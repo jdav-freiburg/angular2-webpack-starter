@@ -13,9 +13,10 @@ import '@angular/forms';
 import '@angular/http';
 import '@angular/router';
 import '@angularclass/hmr';
-import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/merge';
 import 'bootstrap-loader';
 
 if ('production' === ENV) {

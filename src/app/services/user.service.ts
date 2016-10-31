@@ -34,9 +34,9 @@ export class UserService {
             let subject: Subject<RegisteredUser> = new Subject<RegisteredUser>();
 
             this.authService.getAuthUser().subscribe((authUser: AuthUser) => {
-                console.trace('getRegisteredUser(); authUser=', authUser);
+                console.debug('getRegisteredUser(); authUser=', authUser);
                 if (authUser === null) {
-                    console.debug('getRegisteredUser(); will emit nothing');
+                    console.warn('getRegisteredUser(); will emit nothing');
                     subject.complete();
                 } else {
                     this.getUser(authUser.uid).subscribe((user: RegisteredUser) => {
@@ -53,19 +53,20 @@ export class UserService {
     }
 
     public registerUser(user: RegisteredUser): firebase.Promise<void> {
+        console.trace('#registerUser(); user=', user);
         return this.af.database.object(`/users/${user.id}`).set(user);
     }
 
     private getUser(id: string): Observable<RegisteredUser> {
         return this.af.database.object(`/users/${id}`).map((user: any) => {
             let exists: boolean = user.$exists();
-            console.trace(`#getUser('${id}'); exists=${exists}`);
+            console.debug(`#getUser(); id=${id}, exists=${exists}`);
             if (exists) {
                 this.registeredUser = <RegisteredUser>{
                     id: id,
-                    name: user.$value.name,
-                    email: user.$value.email,
-                    roles: user.$value.roles
+                    name: user.name,
+                    email: user.email,
+                    roles: user.roles
                 };
             }
             return this.registeredUser;

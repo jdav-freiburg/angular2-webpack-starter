@@ -17,21 +17,26 @@ import { ItemsComponent } from './components/admin/items/items.component';
 import { AuthService } from './services/auth.service';
 import { ItemService } from './services/item.service';
 import { UserService } from './services/user.service';
-import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
+import { UserAuthStatusService } from './services/user-auth-status.service';
+import { AdminUserGuard } from './services/guards/admin-user-guard.service';
 import { AuthGuard } from './services/guards/auth-guard.service';
-import { RegisteredGuard } from './services/guards/registered-guard.service';
+import { StandardUserGuard } from './services/guards/standard-user-guard.service';
 import { LoginGuard } from './services/guards/login-guard.service';
+import { LoadingComponent } from './components/loading/loading.component';
+import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
 
 export const GUARDS = [
     AuthGuard,
     LoginGuard,
-    RegisteredGuard,
-    AuthAdminGuard
+    StandardUserGuard,
+    AlreadyRegisteredGuard,
+    AdminUserGuard
 ];
 
 export const SERVICES = [
     AuthService,
     UserService,
+    UserAuthStatusService,
     ItemService
 ];
 
@@ -45,7 +50,8 @@ export const SERVICES = [
         HeaderComponent,
         RegisterComponent,
         LoginComponent,
-        NoAccessComponent
+        NoAccessComponent,
+        LoadingComponent
     ],
     imports: [
         AngularFireModule.initializeApp({

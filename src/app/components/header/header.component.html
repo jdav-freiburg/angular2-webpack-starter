@@ -1,11 +1,16 @@
 <header>
-  <aside class="float-xs-right" *ngIf="authService.isAuthorized() | async">
-    <button type="button" class="btn btn-warning" (click)="logout()">Abmelden</button>
-  </aside>
+  <nav class="navbar navbar-light bg-faded">
 
-  <h1 (click)="routeHome()">Depot Alpha</h1>
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Depot</a>
 
-  <nav *ngIf="userService.isRegistered() | async">
-    <a class="btn btn-link" routerLink="/admin/items" routerLinkActive="active">Material Liste</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item" *ngIf="userAuthStatus?.isRegistered">
+        <a class="nav-link" routerLink="/admin/items" routerLinkActive="active">Material Liste</a>
+      </li>
+
+      <li class="nav-item float-xs-right" *ngIf="userAuthStatus?.isAuthorized">
+        <i class="material-icons md-36" (click)="logout()">power_settings_new</i>
+      </li>
+    </ul>
   </nav>
 </header>

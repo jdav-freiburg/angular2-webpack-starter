@@ -13,10 +13,9 @@
     "paths": {
     },
     "lib": [
-      "dom",
-      "es6"
     ],
     "types": [
+      "core-js",
       "hammerjs",
       "jasmine",
       "node",
@@ -38,5 +37,7 @@
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

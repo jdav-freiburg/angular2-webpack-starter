@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { UserAuthStatusService } from '../../services/user-auth-status.service';
+import { UserAuthStatus } from '../../model/user';
 
 @Component({
     selector: 'jgd-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-    constructor(private authService: AuthService, private userService: UserService, private router: Router) {
+    private userAuthStatus: UserAuthStatus;
+
+    constructor(private authService: AuthService, private userAuthStatusService: UserAuthStatusService) {
     }
 
-    private routeHome(): void {
-        this.router.navigate(['/']);
+    ngOnInit(): void {
+        this.userAuthStatusService.getUserAuthStatus().subscribe((userAuthStatus: UserAuthStatus) => {
+            this.userAuthStatus = userAuthStatus;
+        });
     }
 
     private logout(): void {

@@ -10,6 +10,8 @@ import { RegisteredUser, AuthUser } from '../../../model/user';
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+    private submitted: boolean = false;
     private user: RegisteredUser;
 
     constructor(private authService: AuthService, private userService: UserService, private router: Router) {
@@ -17,7 +19,6 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
         this.authService.getAuthUser().subscribe((authUser: AuthUser) => {
-
             if (authUser !== undefined) {
                 this.user = <RegisteredUser>{
                     id: authUser.uid,
@@ -34,6 +35,8 @@ export class RegisterComponent implements OnInit {
             this.userService.reset();
             this.router.navigate(['/']);
         });
+
+        this.submitted = true;
     }
 
 }

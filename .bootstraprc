@@ -69,12 +69,12 @@ styles:
 
   # Components
   animation: false
-  dropdown: false
+  dropdown: true
   button-group: false
   input-group: false
   custom-forms: false
-  nav: false
-  navbar: false
+  nav: true
+  navbar: true
   card: false
   breadcrumb: false
   pagination: false

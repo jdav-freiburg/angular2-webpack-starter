@@ -4,20 +4,19 @@ import { Observable } from 'rxjs/Observable';
 import { UserService } from '../user.service';
 
 @Injectable()
-export class RegisteredGuard implements CanActivate {
+export class AdminUserGuard implements CanActivate {
 
     constructor(private userService: UserService, private router: Router) {
     }
 
     canActivate(): Observable<boolean> {
-        let registered: Observable<boolean> = this.userService.isRegistered().first();
-        registered.subscribe((isRegistered: boolean) => {
-            if (!isRegistered) {
-                console.warn('authorized but not yet registered -> redirect to register');
+        let isRegistered: Observable<boolean> = this.userService.isRegistered().first();
+        this.userService.isRegistered().first().subscribe((isReg: boolean) => {
+            if (!isReg) {
                 this.router.navigate(['/register']);
             }
         });
-        return registered;
+        return isRegistered;
     }
 
 }

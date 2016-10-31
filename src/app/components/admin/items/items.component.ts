@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
+import { ItemService } from '../../../services/item.service';
 
 @Component({
     selector: 'jgd-items',
@@ -8,13 +9,13 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class ItemsComponent implements OnInit {
 
-    private items: FirebaseListObservable<any[]>;
+    private items: Observable<any[]>;
 
-    constructor(private angularFire: AngularFire) {
+    constructor(private itemService: ItemService) {
     }
 
     ngOnInit(): void {
-        this.items = this.angularFire.database.list('/items');
+        this.items = this.itemService.items;
     }
 
 }

@@ -16,7 +16,15 @@
 </head>
 
 <body>
-  <jgd-app>Loading...</jgd-app>
+  <jgd-app>
+    <table class="m-auto h-100">
+      <tbody>
+      <tr>
+        <td class="align-middle">..wird geladen...</td>
+      </tr>
+      </tbody>
+    </table>
+  </jgd-app>
 
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->

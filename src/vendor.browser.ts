@@ -5,7 +5,6 @@
 
 // TODO(gdi2290): switch to DLLs
 
-// Angular 2
 import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
 import '@angular/core';
@@ -15,14 +14,14 @@ import '@angular/http';
 import '@angular/router';
 import '@angularclass/hmr';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/first';
+import 'rxjs/add/observable/from';
 import 'bootstrap-loader';
 
 if ('production' === ENV) {
-  // Production
-
+    // Production
 
 } else {
-  // Development
+    // Development
 
 }

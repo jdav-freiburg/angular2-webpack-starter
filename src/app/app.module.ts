@@ -7,12 +7,33 @@ import { RouterModule } from '@angular/router';
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
-import { NoContentComponent } from './no-content';
-import { HomeComponent } from './home/home.component';
-import { ItemsComponent } from './admin/items/items.component';
-import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
+import { NoContentComponent } from './components/no-content/no-content.component';
+import { NoAccessComponent } from './components/no-access/no-access.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { ItemsComponent } from './components/admin/items/items.component';
 import { AuthService } from './services/auth.service';
-import { HeaderComponent } from './header/header.component';
+import { ItemService } from './services/item.service';
+import { UserService } from './services/user.service';
+import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
+import { AuthGuard } from './services/guards/auth-guard.service';
+import { RegisteredGuard } from './services/guards/registered-guard.service';
+import { LoginGuard } from './services/guards/login-guard.service';
+
+export const GUARDS = [
+    AuthGuard,
+    LoginGuard,
+    RegisteredGuard,
+    AuthAdminGuard
+];
+
+export const SERVICES = [
+    AuthService,
+    UserService,
+    ItemService
+];
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -21,7 +42,10 @@ import { HeaderComponent } from './header/header.component';
         NoContentComponent,
         HomeComponent,
         ItemsComponent,
-        HeaderComponent
+        HeaderComponent,
+        RegisterComponent,
+        LoginComponent,
+        NoAccessComponent
     ],
     imports: [
         AngularFireModule.initializeApp({
@@ -42,8 +66,8 @@ import { HeaderComponent } from './header/header.component';
     ],
     providers: [
         ENV_PROVIDERS,
-        AuthService,
-        AuthAdminGuard,
+        ...GUARDS,
+        ...SERVICES
     ]
 })
 export class AppModule {

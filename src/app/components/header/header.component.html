@@ -1,0 +1,11 @@
+<header>
+  <aside class="float-xs-right" *ngIf="authService.isAuthorized() | async">
+    <button type="button" class="btn btn-warning" (click)="logout()">Abmelden</button>
+  </aside>
+
+  <h1 (click)="routeHome()">Depot Alpha</h1>
+
+  <nav *ngIf="userService.isRegistered() | async">
+    <a class="btn btn-link" routerLink="/admin/items" routerLinkActive="active">Material Liste</a>
+  </nav>
+</header>

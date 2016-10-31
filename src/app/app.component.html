@@ -1,17 +1,7 @@
 <div class="container-fluid">
-  <div class="col-xs-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-    <header>
-      <aside>
-        <button class="btn btn-primary" *ngIf="!(af.auth | async)" (click)="login()">Login</button>
-        <button class="btn btn-primary" *ngIf="(af.auth | async)" (click)="logout()">Logout</button>
-      </aside>
+  <div class="col-xs-12 col-md-10 col-xl-8 offset-md-1 offset-xl-2">
 
-      <h1>Depot Alpha</h1>
-
-      <nav>
-        <a class="btn btn-link" routerLink="/admin/items" routerLinkActive="active">Material Liste</a>
-      </nav>
-    </header>
+    <jgd-header></jgd-header>
 
     <main>
       <router-outlet></router-outlet>

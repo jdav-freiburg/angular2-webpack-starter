@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { NoContentComponent } from './no-content';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './admin/items/items.component';
+import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
+import { AuthService } from './services/auth.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -17,7 +20,8 @@ import { ItemsComponent } from './admin/items/items.component';
         AppComponent,
         NoContentComponent,
         HomeComponent,
-        ItemsComponent
+        ItemsComponent,
+        HeaderComponent
     ],
     imports: [
         AngularFireModule.initializeApp({
@@ -38,6 +42,8 @@ import { ItemsComponent } from './admin/items/items.component';
     ],
     providers: [
         ENV_PROVIDERS,
+        AuthService,
+        AuthAdminGuard,
     ]
 })
 export class AppModule {

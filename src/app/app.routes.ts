@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { NoContentComponent } from './no-content';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './admin/items';
+import { AuthAdminGuard } from './services/guards/auth-admin-guard.service';
 
 export const ROUTES: Routes = [
     {
@@ -11,7 +12,12 @@ export const ROUTES: Routes = [
     },
 
     {path: 'home', component: HomeComponent},
-    {path: 'admin/items', component: ItemsComponent},
+
+    {
+        path: 'admin/items',
+        component: ItemsComponent,
+        canActivate: [AuthAdminGuard]
+    },
 
     {path: '**', component: NoContentComponent},
 ];

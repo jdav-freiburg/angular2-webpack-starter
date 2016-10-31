@@ -3,6 +3,46 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    "directive-selector-name": [
+      true,
+      "camelCase"
+    ],
+    "component-selector-name": [
+      true,
+      "kebab-case"
+    ],
+    "directive-selector-type": [
+      true,
+      "attribute"
+    ],
+    "component-selector-type": [
+      true,
+      "element"
+    ],
+    "directive-selector-prefix": [
+      true,
+      "jgd"
+    ],
+    "component-selector-prefix": [
+      true,
+      "jgd"
+    ],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-forward-ref": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [
+      true,
+      "camelCase",
+      "jgd"
+    ],
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
     "member-access": false,
     "member-ordering": [
       true,
@@ -32,7 +72,6 @@
         "variable-declaration": "space"
       }
     ],
-
     "ban": false,
     "curly": false,
     "forin": true,
@@ -43,11 +82,8 @@
     "no-conditional-assignment": true,
     "no-console": [
       true,
-      "debug",
-      "info",
       "time",
-      "timeEnd",
-      "trace"
+      "timeEnd"
     ],
     "no-construct": true,
     "no-debugger": true,
@@ -73,7 +109,6 @@
       true,
       "check-module"
     ],
-
     "eofline": true,
     "indent": [
       true,
@@ -81,7 +116,7 @@
     ],
     "max-line-length": [
       true,
-      100
+      120
     ],
     "no-require-imports": false,
     "no-trailing-whitespace": true,
@@ -93,7 +128,6 @@
         "singleline": "never"
       }
     ],
-
     "align": false,
     "class-name": true,
     "comment-format": [
@@ -117,11 +151,13 @@
       "single",
       "avoid-escape"
     ],
-    "semicolon": [true, "always"],
+    "semicolon": [
+      true,
+      "always"
+    ],
     "variable-name": [
       true,
       "check-format",
-      "allow-leading-underscore",
       "ban-keywords"
     ],
     "whitespace": [

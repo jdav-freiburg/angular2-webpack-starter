@@ -2,23 +2,23 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 
 @Component({
-    selector: 'app',
+    selector: 'jgd-app',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app.component.scss'],
     templateUrl: './app.component.html'
 })
 export class AppComponent {
 
-    constructor(private angularFire: AngularFire) {
+    constructor(private af: AngularFire) {
 
     }
 
     login() {
-        this.angularFire.auth.login();
+        this.af.auth.login();
     }
 
     logout() {
-        this.angularFire.auth.logout();
+        this.af.auth.logout();
     }
 
 }

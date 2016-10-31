@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 
 @Component({
-    selector: 'home',
-    styleUrls: ['./home.component.css'],
-    templateUrl: './home.component.html'
+    selector: 'jgd-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-    private items: FirebaseListObservable<any[]>;
-
-    constructor(private angularFire: AngularFire) {
+    constructor(private af: AngularFire) {
     }
 
-    ngOnInit(): void {
-        this.items = this.angularFire.database.list('/items');
+    ngOnInit() {
     }
 
 }

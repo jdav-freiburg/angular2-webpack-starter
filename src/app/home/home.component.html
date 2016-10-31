@@ -1,6 +1,3 @@
-Material Liste
-<ul class="list-group">
-  <li class="list-group-item text" *ngFor="let item of items | async">
-    {{item.type}} | {{item.name}} | {{item.category}}
-  </li>
-</ul>
+<div *ngIf="(af.auth | async)">
+  Willkommen {{ (af.auth | async)?.displayName }}
+</div>

@@ -7,15 +7,17 @@ import { RouterModule } from '@angular/router';
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
+import { HomeComponent } from './home/home.component';
+import { ItemsComponent } from './admin/items/items.component';
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
-        HomeComponent,
         NoContentComponent,
+        HomeComponent,
+        ItemsComponent
     ],
     imports: [
         AngularFireModule.initializeApp({

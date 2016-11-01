@@ -63,3 +63,5 @@ npm-debug.log
 .firebaserc
 .credentials.*.json
 npm-debug.log.*
+resources/.secret.data.json
+resources/.secret.user-import.html

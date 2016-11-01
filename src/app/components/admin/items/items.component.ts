@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { ItemService } from '../../../services/item.service';
+import { Item } from '../../../model/item';
 
 @Component({
     selector: 'jgd-items',
@@ -9,13 +9,22 @@ import { ItemService } from '../../../services/item.service';
 })
 export class ItemsComponent implements OnInit {
 
-    private items: Observable<any[]>;
+    private items: Item[];
+    private types: string[];
+
+    private typeFilter: string;
+    private descriptionFilter: string;
 
     constructor(private itemService: ItemService) {
     }
 
     ngOnInit(): void {
-        this.items = this.itemService.items;
+        this.itemService.items.subscribe((items: Item[]) => {
+            this.items = items;
+        });
+        this.itemService.types.subscribe((types: string[]) => {
+            this.types = types;
+        });
     }
 
 }

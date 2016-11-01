@@ -7,7 +7,7 @@ var _pushAll = function (ref, values) {
   })
 };
 
-var data = JSON.parse(fs.readFileSync('resources/data.json'));
+var data = JSON.parse(fs.readFileSync('resources/.secret.data.json'));
 
 firebase.initializeApp({
   databaseURL: 'https://test-6b408.firebaseio.com',

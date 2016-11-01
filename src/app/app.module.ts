@@ -24,6 +24,7 @@ import { StandardUserGuard } from './services/guards/standard-user-guard.service
 import { LoginGuard } from './services/guards/login-guard.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
+import { ItemFilterPipe } from './pipes/item-filter.pipe';
 
 export const GUARDS = [
     AuthGuard,
@@ -51,7 +52,8 @@ export const SERVICES = [
         RegisterComponent,
         LoginComponent,
         NoAccessComponent,
-        LoadingComponent
+        LoadingComponent,
+        ItemFilterPipe
     ],
     imports: [
         AngularFireModule.initializeApp({

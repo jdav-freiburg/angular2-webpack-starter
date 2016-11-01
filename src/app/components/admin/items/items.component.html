@@ -1,5 +1,23 @@
-<ul class="list-group">
-  <li class="list-group-item text" *ngFor="let item of items | async">
-    {{item.type}} | {{item.name}} | {{item.category}}
-  </li>
-</ul>
+<div *ngIf="items && types">
+  <form class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="type">Filtern nach Typ</label>
+      <select class="form-control" id="type" [(ngModel)]="type" name="type">
+        <option *ngFor="let type of types" [value]="type.$value">{{ type.$value }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="description">Filtern nach Beschreibung</label>
+      <input class="form-control" type="search" id="description" [(ngModel)]="description" name="description"
+             placeholder="Suche nach Beschreibung">
+    </div>
+  </form>
+
+  <ul class="list-group">
+    <li class="list-group-item text" *ngFor="let item of items | itemFilter:type:description">
+      {{item.type}} | {{item.description}} | {{item.shape}}
+      <span *ngFor="let label of item.labels"> {{ label }}, </span>
+    </li>
+  </ul>
+</div>

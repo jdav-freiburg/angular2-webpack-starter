@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { AuthProviders, AuthMethods } from 'angularfire2';
 
 @Component({
     selector: 'jgd-login',
@@ -11,8 +12,15 @@ export class LoginComponent {
     constructor(private authService: AuthService) {
     }
 
-    private login(): void {
-        this.authService.login();
+    private loginGoogle(): void {
+        this.authService.login({
+            provider: AuthProviders.Google,
+            method: AuthMethods.Redirect
+        });
+    }
+
+    private loginPW(): void {
+        console.warn('not yet implemented');
     }
 
 }

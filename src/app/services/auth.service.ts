@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { AngularFire, FirebaseAuthState } from 'angularfire2';
+import { AngularFire, FirebaseAuthState, AuthConfiguration } from 'angularfire2';
 import { AuthUser } from '../model/user';
 
 @Injectable()
@@ -39,9 +39,9 @@ export class AuthService {
         return Observable.from([this.authorized]);
     }
 
-    public login() {
+    public login(config?: AuthConfiguration): firebase.Promise<FirebaseAuthState> {
         console.trace('#login()');
-        this.af.auth.login();
+        return this.af.auth.login(config);
     }
 
     public logout() {

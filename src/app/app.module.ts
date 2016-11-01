@@ -1,4 +1,4 @@
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -55,15 +55,11 @@ export const SERVICES = [
     ],
     imports: [
         AngularFireModule.initializeApp({
-                apiKey: 'AIzaSyAh1HzWeBkI8VmscctkxRzZNI6TQWOJFZk',
-                authDomain: 'test-6b408.firebaseapp.com',
-                databaseURL: 'https://test-6b408.firebaseio.com',
-                storageBucket: 'test-6b408.appspot.com'
-            },
-            {
-                provider: AuthProviders.Google,
-                method: AuthMethods.Redirect
-            }),
+            apiKey: 'AIzaSyAh1HzWeBkI8VmscctkxRzZNI6TQWOJFZk',
+            authDomain: 'test-6b408.firebaseapp.com',
+            databaseURL: 'https://test-6b408.firebaseio.com',
+            storageBucket: 'test-6b408.appspot.com'
+        }),
         // angular core
         BrowserModule,
         FormsModule,

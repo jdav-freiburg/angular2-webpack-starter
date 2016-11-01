@@ -4,7 +4,9 @@
     <jgd-header></jgd-header>
 
     <main>
-      <router-outlet></router-outlet>
+      <router-outlet>
+        <jgd-loading *ngIf="loading"></jgd-loading>
+      </router-outlet>
     </main>
 
     <footer></footer>

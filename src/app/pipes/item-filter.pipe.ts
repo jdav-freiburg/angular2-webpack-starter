@@ -11,10 +11,10 @@ export class ItemFilterPipe implements PipeTransform {
             (description === undefined || description.trim().length === 0)) {
             return items;
         }
-        return items.filter((item: Item) => {
-            let filterType = type !== undefined && type.trim().length > 0;
-            let filterDescription = description === undefined || description.trim().length > 0;
 
+        let filterType = type !== undefined && type.trim().length > 0;
+        let filterDescription = description !== undefined && description.trim().length > 0;
+        return items.filter((item: Item) => {
             return (!filterType || (filterType && item.type.indexOf(type) !== -1)) &&
                 (!filterDescription || (filterDescription && item.description.indexOf(description) !== -1));
         });

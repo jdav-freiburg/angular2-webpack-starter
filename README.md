@@ -1,3 +1,13 @@
+<div align="center"><h1>Gear Depot</h1></div>
+<p align="center">an app for borrowing common gear (like ropes, helmets, tents, ...)</p>
+<p align="center"><small>written for JDAV Freiburg</small></p>
+
+[![Build Status](https://travis-ci.org/jdav-freiburg/gear-deposit.svg?branch=master)](https://travis-ci.org/jdav-freiburg/gear-deposit)
+
+Status: Alpha
+
+_following docu is an extract from [AngularClass/angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)_
+
 ### Quick start
 **Make sure you have Node version >= 5.0 and NPM >= 3**
 

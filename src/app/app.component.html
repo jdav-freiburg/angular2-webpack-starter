@@ -1,14 +1,13 @@
+<jgd-header></jgd-header>
+
+<jgd-loading *ngIf="loading"></jgd-loading>
+
 <div class="container-fluid">
   <div class="col-xs-12 col-md-10 col-xl-8 offset-md-1 offset-xl-2">
-
-    <jgd-header></jgd-header>
-
     <main>
-      <router-outlet>
-        <jgd-loading *ngIf="loading"></jgd-loading>
-      </router-outlet>
+      <router-outlet></router-outlet>
     </main>
-
-    <footer></footer>
   </div>
 </div>
+
+<footer></footer>

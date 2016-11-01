@@ -1,3 +1,10 @@
-header h1 {
-  cursor: pointer;
+@import "../../../scss/variables";
+
+header {
+  .nav-item {
+    cursor: pointer;
+  }
+  i:hover {
+    color: $accent_700;
+  }
 }

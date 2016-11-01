@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { AuthProviders, AuthMethods } from 'angularfire2';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'jgd-login',
@@ -9,18 +9,25 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
 })
 export class LoginComponent {
 
+    private isFormVisible: boolean = false;
+
     constructor(private authService: AuthService) {
     }
 
-    private loginGoogle(): void {
-        this.authService.login({
-            provider: AuthProviders.Google,
-            method: AuthMethods.Redirect
-        });
+    private showForm() {
+        this.isFormVisible = true;
     }
 
-    private loginPW(): void {
-        console.warn('not yet implemented');
+    private loginGoogle(): void {
+        this.authService.loginGoogle();
+    }
+
+    private onSubmit(event: Event, form: NgForm): void {
+        event.preventDefault();
+        this.authService.loginPW(form.value.email, form.value.password).catch((e: Error) => {
+            console.error('couldn\'t login with email/pw', form.value.email, form.value.password, e);
+            alert(e);
+        });
     }
 
 }

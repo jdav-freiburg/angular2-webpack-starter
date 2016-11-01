@@ -1,6 +1,6 @@
 <div *ngIf="!submitted">
   <p>Bitte registriere Dich noch auf dieser Seite.</p>
-  <form #registerForm="ngForm" (ngSubmit)="onSubmit($event)" validate>
+  <form #f="ngForm" (ngSubmit)="onSubmit($event)" validate>
 
     <div class="form-group">
       <label for="name">Dein Name</label>
@@ -23,7 +23,7 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid">Registrieren</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Registrieren</button>
   </form>
 </div>
 

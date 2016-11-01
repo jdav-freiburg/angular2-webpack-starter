@@ -26,4 +26,11 @@ export class UserAuthStatusService {
                 return this.userAuthStatus;
             }));
     }
+
+    public reset(): void {
+        this.userAuthStatus.isAuthorized = false;
+        this.userAuthStatus.isRegistered = false;
+        this.authService.reset();
+        this.userService.reset();
+    }
 }

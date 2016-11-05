@@ -20,3 +20,26 @@
 .btn.accent:hover {
   background-color: $accent_A700;
 }
+
+.btn.floating {
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+  border-radius: 100%;
+  float: right;
+  height: 60px;
+  width: 60px;
+}
+
+.btn.floating:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+}
+
+.btn.accent.floating {
+  background-color: $accent_A700;
+  color: white;
+}
+
+.md-dialog-container {
+  background-color: $primary_100;
+  border-radius: $btn-border-radius;
+  padding: ($spacer / 4) $spacer;
+}

@@ -17,6 +17,7 @@ import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/timer';
 import 'bootstrap-loader';
 
 if ('production' === ENV) {

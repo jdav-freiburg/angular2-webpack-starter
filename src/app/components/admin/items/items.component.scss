@@ -50,4 +50,9 @@ jgd-nav-bar {
   bottom: 0;
   left: 0;
   width: 100%;
+
+  .btn.floating {
+    margin-top: -40px;
+    position: relative;
+  }
 }

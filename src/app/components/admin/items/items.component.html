@@ -36,8 +36,9 @@
 
   <jgd-nav-bar *ngIf="changed > 0">
     <span>{{ changed }} Einträge geändert</span>
-    <button type="button" class="btn accent nav-item float-xs-right" (click)="saveChanged()">
-      Speichern
+    <button type="button" class="btn accent floating" (click)="saveChanged()"
+            title="Änderungen speichern">
+      <i class="material-icons md-36">save</i>
     </button>
   </jgd-nav-bar>
 </div>

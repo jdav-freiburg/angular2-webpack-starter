@@ -13,7 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { ItemsComponent } from './components/admin/items/items.component';
+import { ItemsComponent, ItemsSavedMessageComponent } from './components/admin/items';
 import { AuthService } from './services/auth.service';
 import { ItemService } from './services/item.service';
 import { UserService } from './services/user.service';
@@ -25,8 +25,9 @@ import { LoginGuard } from './services/guards/login-guard.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
 import { ItemFilterPipe } from './pipes/item-filter.pipe';
-import { LabelOnClickInputComponent } from './components/label-on-click-input/label-on-click-input.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { InfoMessageComponent } from './components/info-message/info-message.component';
+import { MaterialModule } from '@angular/material';
 
 export const GUARDS = [
     AuthGuard,
@@ -56,15 +57,23 @@ export const SERVICES = [
         NoAccessComponent,
         LoadingComponent,
         ItemFilterPipe,
-        NavBarComponent
+        NavBarComponent,
+        InfoMessageComponent,
+        ItemsSavedMessageComponent,
+    ],
+    entryComponents: [
+        ItemsSavedMessageComponent,
     ],
     imports: [
+        // https://github.com/angular/angularfire2
         AngularFireModule.initializeApp({
             apiKey: 'AIzaSyAh1HzWeBkI8VmscctkxRzZNI6TQWOJFZk',
             authDomain: 'test-6b408.firebaseapp.com',
             databaseURL: 'https://test-6b408.firebaseio.com',
             storageBucket: 'test-6b408.appspot.com'
         }),
+        // https://github.com/angular/material2
+        MaterialModule.forRoot(),
         // angular core
         BrowserModule,
         FormsModule,

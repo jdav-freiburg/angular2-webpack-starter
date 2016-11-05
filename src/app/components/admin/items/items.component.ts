@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../model/item';
+import { ItemsSavedMessageComponent } from './items-saved-message.component';
 
 @Component({
     selector: 'jgd-items',
@@ -8,6 +11,8 @@ import { Item } from '../../../model/item';
     templateUrl: './items.component.html'
 })
 export class ItemsComponent implements OnInit {
+
+    private dialogRef: MdDialogRef<ItemsSavedMessageComponent>;
 
     private items: Item[];
     private types: string[];
@@ -18,7 +23,8 @@ export class ItemsComponent implements OnInit {
     private changedItems: Map<string, Item> = new Map<string, Item>();
     private changed: number = 0;
 
-    constructor(private itemService: ItemService) {
+    constructor(private itemService: ItemService, private dialog: MdDialog,
+                private viewContainerRef: ViewContainerRef) {
     }
 
     ngOnInit(): void {
@@ -99,7 +105,25 @@ export class ItemsComponent implements OnInit {
         this.changedItems.forEach((item: Item, id: string, map: Map<string, Item>) => {
             this.itemService.update(id, item);
         });
+        this.showSavedMessage();
         this.changedItems.clear();
+        this.changed = 0;
+    }
+
+    private showSavedMessage() {
+        if (this.dialogRef === undefined) {
+
+            let config = new MdDialogConfig();
+            config.viewContainerRef = this.viewContainerRef;
+
+            this.dialogRef = this.dialog.open(ItemsSavedMessageComponent, config);
+
+            let timer = Observable.timer(2000);
+            timer.subscribe(() => {
+                this.dialogRef.close();
+                this.dialogRef = undefined;
+            });
+        }
     }
 
 }

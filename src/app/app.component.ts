@@ -4,7 +4,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 @Component({
     selector: 'jgd-app',
     encapsulation: ViewEncapsulation.None,
-    styleUrls: ['./app.component.scss', '../scss/material-icons.scss'],
+    styleUrls: ['./app.component.scss', '../scss/material.scss', '../scss/material-icons.scss'],
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {

@@ -15,6 +15,9 @@ export class ItemsComponent implements OnInit {
     private typeFilter: string;
     private descriptionFilter: string;
 
+    private changedItems: Map<string, Item> = new Map<string, Item>();
+    private changed: number = 0;
+
     constructor(private itemService: ItemService) {
     }
 
@@ -25,6 +28,78 @@ export class ItemsComponent implements OnInit {
         this.itemService.types.subscribe((types: string[]) => {
             this.types = types;
         });
+    }
+
+    private areEqual(item1: Item, item2: Item) {
+        return item1.type === item2.type && item1.description === item2.description && item1.shape === item2.shape;
+    }
+
+    private onItemTypeChanged(item: Item, value: string): void {
+        let alreadyChanged: Item = this.changedItems.get(item.id);
+        item.changed = true;
+        if (alreadyChanged !== undefined) {
+            alreadyChanged.type = value;
+            if (this.areEqual(item, alreadyChanged)) {
+                this.changedItems.delete(item.id);
+                item.changed = false;
+            }
+        } else {
+            this.changedItems.set(item.id, <Item>{
+                type: value,
+                description: item.description,
+                shape: item.shape,
+                labels: item.labels
+            });
+        }
+        this.changed = this.changedItems.size;
+    }
+
+    private onItemDescriptionChanged(item: Item, value: string) {
+        let alreadyChanged: Item = this.changedItems.get(item.id);
+        item.changed = true;
+        if (alreadyChanged !== undefined) {
+            alreadyChanged.description = value;
+            if (this.areEqual(item, alreadyChanged)) {
+                this.changedItems.delete(item.id);
+                item.changed = false;
+            }
+        } else {
+            this.changedItems.set(item.id, <Item>{
+                type: item.type,
+                description: value,
+                shape: item.shape,
+                labels: item.labels
+            });
+        }
+        this.changed = this.changedItems.size;
+    }
+
+    private onItemShapeChanged(item: Item, value: string) {
+        let alreadyChanged: Item = this.changedItems.get(item.id);
+        item.changed = true;
+        if (alreadyChanged !== undefined) {
+            alreadyChanged.shape = value;
+            if (this.areEqual(item, alreadyChanged)) {
+                this.changedItems.delete(item.id);
+                item.changed = false;
+            }
+        } else {
+            this.changedItems.set(item.id, <Item>{
+                type: item.type,
+                description: item.description,
+                shape: value,
+                labels: item.labels
+            });
+        }
+        this.changed = this.changedItems.size;
+    }
+
+    private saveChanged() {
+        console.trace('#saveChanged()');
+        this.changedItems.forEach((item: Item, id: string, map: Map<string, Item>) => {
+            this.itemService.update(id, item);
+        });
+        this.changedItems.clear();
     }
 
 }

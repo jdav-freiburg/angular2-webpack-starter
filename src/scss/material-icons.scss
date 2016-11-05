@@ -1,4 +1,4 @@
-@import "../../node_modules/bootstrap/scss/variables";
+@import "variables";
 
 // https://fonts.googleapis.com/icon?family=Material+Icons
 // http://google.github.io/material-design-icons/#icon-font-for-the-web
@@ -24,6 +24,7 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  transition: color 150ms ease-in-out;
 }
 
 /* Rules for sizing the icon. */

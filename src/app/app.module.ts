@@ -25,6 +25,8 @@ import { LoginGuard } from './services/guards/login-guard.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
 import { ItemFilterPipe } from './pipes/item-filter.pipe';
+import { LabelOnClickInputComponent } from './components/label-on-click-input/label-on-click-input.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 export const GUARDS = [
     AuthGuard,
@@ -53,7 +55,8 @@ export const SERVICES = [
         LoginComponent,
         NoAccessComponent,
         LoadingComponent,
-        ItemFilterPipe
+        ItemFilterPipe,
+        NavBarComponent
     ],
     imports: [
         AngularFireModule.initializeApp({

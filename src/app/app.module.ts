@@ -13,7 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { ItemsComponent, ItemsSavedMessageComponent } from './components/admin/items';
+import { ItemsComponent } from './components/admin/items';
 import { AuthService } from './services/auth.service';
 import { ItemService } from './services/item.service';
 import { UserService } from './services/user.service';
@@ -26,8 +26,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
 import { ItemFilterPipe } from './pipes/item-filter.pipe';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { InfoMessageComponent } from './components/info-message/info-message.component';
-import { MaterialModule } from '@angular/material';
+import { InfoMessageComponent } from './components/ui-messages';
+import { UiMessageService } from './services/ui-message.service';
 
 export const GUARDS = [
     AuthGuard,
@@ -41,7 +41,8 @@ export const SERVICES = [
     AuthService,
     UserService,
     UserAuthStatusService,
-    ItemService
+    ItemService,
+    UiMessageService,
 ];
 
 @NgModule({
@@ -59,10 +60,11 @@ export const SERVICES = [
         ItemFilterPipe,
         NavBarComponent,
         InfoMessageComponent,
-        ItemsSavedMessageComponent,
     ],
-    entryComponents: [
-        ItemsSavedMessageComponent,
+    providers: [
+        ENV_PROVIDERS,
+        ...GUARDS,
+        ...SERVICES
     ],
     imports: [
         // https://github.com/angular/angularfire2
@@ -72,18 +74,11 @@ export const SERVICES = [
             databaseURL: 'https://test-6b408.firebaseio.com',
             storageBucket: 'test-6b408.appspot.com'
         }),
-        // https://github.com/angular/material2
-        MaterialModule.forRoot(),
         // angular core
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(ROUTES, {useHash: true})
-    ],
-    providers: [
-        ENV_PROVIDERS,
-        ...GUARDS,
-        ...SERVICES
+        RouterModule.forRoot(ROUTES, {useHash: true}),
     ]
 })
 export class AppModule {

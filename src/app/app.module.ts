@@ -28,6 +28,7 @@ import { ItemFilterPipe } from './pipes/item-filter.pipe';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { InfoMessageComponent } from './components/ui-messages';
 import { UiMessageService } from './services/ui-message.service';
+import { NewReservationComponent } from './components/user/new-reservation/new-reservation.component';
 
 export const GUARDS = [
     AuthGuard,
@@ -60,6 +61,7 @@ export const SERVICES = [
         ItemFilterPipe,
         NavBarComponent,
         InfoMessageComponent,
+        NewReservationComponent,
     ],
     providers: [
         ENV_PROVIDERS,

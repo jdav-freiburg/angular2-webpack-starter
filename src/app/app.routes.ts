@@ -10,6 +10,7 @@ import { NoAccessComponent } from './components/no-access/no-access.component';
 import { StandardUserGuard } from './services/guards/standard-user-guard.service';
 import { LoginGuard } from './services/guards/login-guard.service';
 import { AlreadyRegisteredGuard } from './services/guards/already-registered-guard.service';
+import { NewReservationComponent } from './components/user/new-reservation/new-reservation.component';
 
 export const ROUTES: Routes = [
     {
@@ -21,6 +22,12 @@ export const ROUTES: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+        canActivate: [AuthGuard, StandardUserGuard]
+    },
+
+    {
+        path: 'reservation/new',
+        component: NewReservationComponent,
         canActivate: [AuthGuard, StandardUserGuard]
     },
 

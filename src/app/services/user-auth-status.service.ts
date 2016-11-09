@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
-import { UserAuthStatus } from '../model/user';
+import { UserAuthStatus, RegisteredUser, Role } from '../model/user';
 
 @Injectable()
 export class UserAuthStatusService {
@@ -21,8 +21,16 @@ export class UserAuthStatusService {
                 this.userAuthStatus.isAuthorized = isAuthorized;
                 return this.userAuthStatus;
             }),
-            this.userService.isRegistered().map((isRegistered: boolean) => {
-                this.userAuthStatus.isRegistered = isRegistered;
+            this.userService.getRegisteredUser().map((user: RegisteredUser) => {
+                if (user !== undefined) {
+                    let roles = user.roles ? user.roles : [];
+                    this.userAuthStatus.isRegistered = true;
+                    this.userAuthStatus.hasAdminRole = !!roles.find((role: Role) => {
+                        return role === Role.ADMIN;
+                    });
+                } else {
+                    this.userAuthStatus.isRegistered = false;
+                }
                 return this.userAuthStatus;
             }));
     }
@@ -30,6 +38,7 @@ export class UserAuthStatusService {
     public reset(): void {
         this.userAuthStatus.isAuthorized = false;
         this.userAuthStatus.isRegistered = false;
+        this.userAuthStatus.hasAdminRole = false;
         this.authService.reset();
         this.userService.reset();
     }

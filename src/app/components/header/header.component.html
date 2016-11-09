@@ -6,7 +6,7 @@
       <li class="nav-item" *ngIf="userAuthStatus?.isRegistered">
         <a class="nav-link" routerLink="/reservation/new" routerLinkActive="active">Neue Reservierung</a>
       </li>
-      <li class="nav-item" *ngIf="userAuthStatus?.isRegistered">
+      <li class="nav-item" *ngIf="userAuthStatus?.hasAdminRole">
         <a class="nav-link" routerLink="/admin/items" routerLinkActive="active">Material Liste</a>
       </li>
 

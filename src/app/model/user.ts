@@ -1,9 +1,12 @@
+export enum Role {
+    ADMIN = 1
+}
+
 export interface RegisteredUser {
-    id: string;
     name: string;
     email: string;
     youthGroup: string;
-    roles: string[];
+    roles?: Role[];
 }
 
 export interface AuthUser extends firebase.User {
@@ -12,4 +15,5 @@ export interface AuthUser extends firebase.User {
 export interface UserAuthStatus {
     isAuthorized: boolean;
     isRegistered: boolean;
+    hasAdminRole: boolean;
 }

@@ -12,6 +12,7 @@ import { RegisteredUser, AuthUser } from '../../../model/user';
 export class RegisterComponent implements OnInit {
 
     private submitted: boolean = false;
+    private uid: string;
     private user: RegisteredUser;
 
     constructor(private authService: AuthService, private userService: UserService, private router: Router) {
@@ -20,8 +21,8 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void {
         this.authService.getAuthUser().subscribe((authUser: AuthUser) => {
             if (authUser !== undefined) {
+                this.uid = authUser.uid;
                 this.user = <RegisteredUser>{
-                    id: authUser.uid,
                     name: authUser.displayName,
                     email: authUser.email
                 };
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit(event: Event): void {
         event.preventDefault();
-        this.userService.registerUser(this.user).then(() => {
+        this.userService.registerUser(this.uid, this.user).then(() => {
             this.userService.reset();
             this.router.navigate(['/']);
         });

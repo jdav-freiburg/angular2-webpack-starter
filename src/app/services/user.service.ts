@@ -52,9 +52,9 @@ export class UserService {
         return Observable.from([this.registeredUser]);
     }
 
-    public registerUser(user: RegisteredUser): firebase.Promise<void> {
-        console.trace('#registerUser(); user=', user);
-        return this.af.database.object(`/users/${user.id}`).set(user);
+    public registerUser(id: string, user: RegisteredUser): firebase.Promise<void> {
+        console.trace(`#registerUser(); id=${id}, user=`, user);
+        return this.af.database.object(`/users/${id}`).set(user);
     }
 
     private getUser(id: string): Observable<RegisteredUser> {
@@ -63,9 +63,9 @@ export class UserService {
             console.debug(`#getUser(); id=${id}, exists=${exists}`);
             if (exists) {
                 this.registeredUser = <RegisteredUser>{
-                    id: id,
                     name: user.name,
                     email: user.email,
+                    youthGroup: user.youthGroup,
                     roles: user.roles
                 };
             }

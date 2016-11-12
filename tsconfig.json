@@ -23,8 +23,7 @@
       "selenium-webdriver",
       "source-map",
       "uglify-js",
-      "webpack",
-      "firebase"
+      "webpack"
     ]
   },
   "exclude": [

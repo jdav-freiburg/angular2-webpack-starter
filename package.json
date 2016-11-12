@@ -1,5 +1,5 @@
 {
-  "name": "gear-deposit",
+  "name": "webpack-starter.gear-deposit",
   "version": "1.0.0-alpha.1",
   "description": "",
   "keywords": [
@@ -143,10 +143,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jdav-freiburg/gear-deposit.git"
+    "url": "https://github.com/jdav-freiburg/webpack-starter.gear-deposit.git"
   },
   "bugs": {
-    "url": "https://github.com/jdav-freiburg/gear-deposit/issues"
+    "url": "https://github.com/jdav-freiburg/webpack-starter.gear-deposit/issues"
   },
   "engines": {
     "node": ">= 4.2.1",

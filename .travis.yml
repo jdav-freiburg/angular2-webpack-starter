@@ -10,7 +10,6 @@ before_install:
   - sleep 3
   # Updating NPM to relevant version >= 3 on Node.JS LTS
   - npm i -g npm@^3
-  - npm install -g firebase-tools
 install:
   - yarn
 before_script:
@@ -24,8 +23,6 @@ script:
   - npm test
   - npm run e2e
   - npm run build:dev
-  - firebase use --token $FIREBASE_DEPLOY_TOKEN $FIREBASE_PROJECT_DEV
-  - firebase deploy --token $FIREBASE_DEPLOY_TOKEN -m "ci $TRAVIS_BRANCH build $TRAVIS_BUILD_NUMBER" --non-interactive
 cache:
   directories:
   - $HOME/.yarn-cache
